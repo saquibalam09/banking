@@ -24,6 +24,7 @@ import { authFormSchema } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { signIn, signUp } from "@/lib/actions/user.actions";
+import PlaidLink from "./PlaidLink";
 
 // const formSchema = authFormSchema("sign-up");
 
@@ -63,6 +64,8 @@ const AuthForm = ({ type }: { type: string }) => {
           password: data.password,
         };
         const newUser = await signUp(userData);
+        console.log("newUser from AuthForm->", newUser);
+
         setUser(newUser);
       }
       if (type === "sign-in") {
@@ -105,7 +108,9 @@ const AuthForm = ({ type }: { type: string }) => {
         </div>
       </header>
       {user ? (
-        <div className="flex flex-col gap-4">{/* PlaidLink */}</div>
+        <div className="flex flex-col gap-4">
+          <PlaidLink user={user} variant="primary" />
+        </div>
       ) : (
         <>
           <Form {...form}>
@@ -123,7 +128,7 @@ const AuthForm = ({ type }: { type: string }) => {
                       control={form.control}
                       name="lastName"
                       label="Last Name"
-                      placeholder="Enter your first name"
+                      placeholder="Enter your last name"
                     />
                   </div>
                   <CustomInput

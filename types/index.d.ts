@@ -8,14 +8,14 @@ declare type SearchParamProps = {
 // ========================================
 
 declare type SignUpParams = {
-  firstName?: string;
-  lastName?: string;
-  address1?: string;
-  city?: string;
-  state?: string;
-  postalCode?: string;
-  dateOfBirth?: string;
-  ssn?: string;
+  firstName: string;
+  lastName: string;
+  address1: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  dateOfBirth: string;
+  ssn: string;
   email: string;
   password: string;
 };
@@ -119,7 +119,7 @@ declare type TransferParams = {
 };
 
 declare type AddFundingSourceParams = {
-  dwollaCustomerId: string;
+  dwollaCustomerId?: string;
   processorToken: string;
   bankName: string;
 };
@@ -274,7 +274,7 @@ declare interface getTransactionsProps {
 }
 
 declare interface CreateFundingSourceOptions {
-  customerId: string; // Dwolla Customer ID
+  customerId?: string; // Dwolla Customer ID
   fundingSourceName: string; // Dwolla Funding Source Name
   plaidToken: string; // Plaid Account Processor Token
   _links: object; // Dwolla On Demand Authorization Link
@@ -310,11 +310,11 @@ declare interface exchangePublicTokenProps {
 
 declare interface createBankAccountProps {
   accessToken: string;
-  userId: string;
+  userId?: string;
   accountId: string;
   bankId: string;
   fundingSourceUrl: string;
-  sharableId: string;
+  shareableId: string;
 }
 
 declare interface getBanksProps {
