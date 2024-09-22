@@ -1,9 +1,9 @@
 import HeaderBox from "@/components/HeaderBox";
 import PaymentTransferForm from "@/components/PaymentTransferForm";
-import TransactionsTable from "@/components/TransactionsTable";
-import { getAccount, getAccounts } from "@/lib/actions/bank.actions";
+
+import { getAccounts } from "@/lib/actions/bank.actions";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
-import { formatAmount } from "@/lib/utils";
+
 import React from "react";
 
 const payTrans = async () => {
