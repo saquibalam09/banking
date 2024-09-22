@@ -5,7 +5,6 @@ import { Client } from "dwolla-v2";
 
 const getEnvironment = (): "production" | "sandbox" => {
   const environment = process.env.DWOLLA_ENV as string;
-  console.log("environ", environment);
 
   switch (environment) {
     case "sandbox":
@@ -18,9 +17,6 @@ const getEnvironment = (): "production" | "sandbox" => {
       );
   }
 };
-console.log(process.env.DWOLLA_ENV);
-console.log(process.env.DWOLLA_KEY);
-console.log(process.env.DWOLLA_SECRET);
 
 const dwollaClient = new Client({
   environment: getEnvironment(),
@@ -88,6 +84,8 @@ export const createTransfer = async ({
         value: amount,
       },
     };
+    console.log("dwolla->", requestBody);
+
     return await dwollaClient
       .post("transfers", requestBody)
       .then((res) => res.headers.get("location"));

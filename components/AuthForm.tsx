@@ -64,7 +64,7 @@ const AuthForm = ({ type }: { type: string }) => {
           password: data.password,
         };
         const newUser = await signUp(userData);
-        console.log("newUser from AuthForm->", newUser);
+        // console.log("newUser from AuthForm->", newUser);
 
         setUser(newUser);
       }

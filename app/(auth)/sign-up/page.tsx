@@ -4,7 +4,7 @@ import React from "react";
 
 const SignUp = async () => {
   const loggedInUser = await getLoggedInUser();
-  console.log("User->", loggedInUser);
+  // console.log("User->", loggedInUser);
 
   return (
     <section className="flex-center size-full max-sm:px-6">

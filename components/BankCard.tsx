@@ -1,5 +1,7 @@
 "use client";
 import { formatAmount } from "@/lib/utils";
+
+import Copy from "./Copy";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -11,7 +13,10 @@ const BankCard = ({
 }: CreditCardProps) => {
   return (
     <div className="flex flex-col">
-      <Link href="/" className="bank-card">
+      <Link
+        href={`/transaction-history/?id=${account.appwriteItemId}`}
+        className="bank-card"
+      >
         <div className="bank-card_content">
           <div>
             <h1 className="text-16 font-semibold text-white">
@@ -50,6 +55,7 @@ const BankCard = ({
           className="absolute left-0 right-0"
         />
       </Link>
+      {showBalance && <Copy title={account?.shareableId} />}
     </div>
   );
 };
